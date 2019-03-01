@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava7</title>
+</head>
+<body>
+<script>
+  'use strict';
+
+  let luvut = [];
+  let luku;
+  let evenNum = [];
+  let lopetus = "lopeta";
+  let x = false;
+  let y = 0;
+
+  do {
+    luku = prompt('Anna kokonaisluku tai kirjoita " lopeta " kun haluat lopettaa!');
+    let n = luku.localeCompare(lopetus);
+    if (n == 0){
+      break;
+    }
+    luvut.push(luku);
+    y++;
+  }while (x == false);
+
+  parilliset(luvut);
+  alert('Parilliset luvut ' + evenNum);
+
+
+  function parilliset(taulukko){
+    let num;
+    for (let i = 0; i < y; i++){
+      if (taulukko[i] & 1){
+
+      }
+      else{
+        num = taulukko[i];
+        evenNum.push(num);
+      }
+    }
+    return evenNum;
+  }
+
+
+</script>
+</body>
+</html>

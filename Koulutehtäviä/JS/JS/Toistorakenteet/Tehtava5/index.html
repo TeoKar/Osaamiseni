@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava5</title>
+</head>
+<body>
+<script>
+    'use strict'
+    let annettuNum;
+    let prime = true;
+    annettuNum = prompt("Anna positiivinen kokonaisluku!");
+    while (annettuNum <=0) {
+      if (annettuNum == 0) {
+        annettuNum = prompt("Anna positiivinen kokonaisluku! (EI NOLLA)");
+      }
+      else {
+        annettuNum = prompt("Anna positiivinen kokonaisluku!");
+      }
+    }
+
+    for (var i = 2; i < annettuNum; i++){
+      if(annettuNum % i === 0) {
+        prime = false;
+        break;
+      }
+    }
+
+    if (prime === false){
+      console.log("numero ei ole alkuluku!");
+    }
+    else{
+      console.log("numero on alkuluku!");
+    }
+
+
+</script>
+
+</body>
+</html>

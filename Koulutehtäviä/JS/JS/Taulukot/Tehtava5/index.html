@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava5</title>
+</head>
+<body>
+<script>
+    'use strict';
+        let annettuNumero;
+        let numerot = [];
+        let x = false;
+
+
+       annettuNumero = prompt('Anna luku 1 ja 1000 väliltä!');
+       numerot.push(annettuNumero);
+
+       do {
+         annettuNumero = prompt('Anna uusi luku 1 ja 1000 väliltä!');
+         if (numerot.includes(annettuNumero)){
+           alert('Luku on jo annettu, ohjelma sulkeutuu!');
+           break;
+         }
+         numerot.push(annettuNumero);
+       } while (x == false);
+
+
+
+</script>
+</body>
+</html>

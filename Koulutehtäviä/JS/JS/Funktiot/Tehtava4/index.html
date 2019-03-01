@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava4</title>
+</head>
+<body>
+<script>
+    'use strict';
+    let luvut = [];
+    let luku;
+
+    for (let x = 1; x <= 3; x++) {
+     luku = prompt('Anna luku num.' + x);
+      luvut.push(luku);
+    }
+
+    suurinLuku(luvut);
+
+    function suurinLuku(taulukko){
+      alert('Suurin antamasi luku oli ' + Math.max.apply(null, taulukko));
+    }
+
+</script>
+
+</body>
+</html>

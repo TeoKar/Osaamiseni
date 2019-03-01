@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava1</title>
+</head>
+<body>
+<h1></h1>
+<script>
+    'use strict';
+    let annettuNum;
+    let kertoma = 1;
+    annettuNum = prompt('Anna kokonaisluku');
+    console.log(annettuNum);
+
+    while (annettuNum != 0 && annettuNum >= 0) {
+    kertoma = kertoma * annettuNum;
+    annettuNum = annettuNum - 1;
+      console.log(kertoma + ' ' + annettuNum);
+    }
+    console.log(kertoma);
+
+</script>
+</body>
+</html>

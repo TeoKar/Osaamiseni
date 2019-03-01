@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava3</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    let luku, tulos;
+    let x = false;
+
+    do {
+      luku = prompt('Anna kokonaisluku!');
+      if (luku % 1 == 0){
+        x = true;
+      }
+    } while (x == false);
+
+      itseisarvo(luku);
+      alert('Luvun itseisarvo on ' + tulos);
+
+    function itseisarvo(arvo){
+      tulos = Math.abs(arvo);
+        return tulos ;
+    }
+
+
+
+</script>
+</body>
+</html>

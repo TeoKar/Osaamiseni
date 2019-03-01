@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava5</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    let strings = [];
+    let string;
+
+    do {
+      string = prompt('Anna sana tai luku tai jos haluat lopettaa kirjoita 0!');
+      strings.push(string);
+    } while (string != 0);
+
+    liita(strings);
+
+    function liita(taulukko){
+      alert(taulukko.join(''));
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava4</title>
+</head>
+<body>
+<script>
+    'use strict';
+    let luku;
+    let luvut = [];
+    let x = 0;
+    let tulosta = 1;
+
+    do {
+     luku = prompt('Anna luku!');
+     if (luku == 0){
+       break;
+     }
+     luvut.push(luku);
+     x++;
+    } while (luku != 0);
+
+    luvut.sort(function(a, b){return b-a } );
+    console.log(luvut);
+
+    for(let i = x-1; i >= 0; i--) {
+      console.log(luvut[tulosta - 1]);
+      tulosta++;
+    }
+
+</script>
+
+</body>
+</html>

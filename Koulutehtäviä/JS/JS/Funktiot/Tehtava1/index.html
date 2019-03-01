@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava1</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    let gallonat;
+    let litrat = 0;
+    gallonat = prompt('Anna bensan määrä gallonoina!');
+    muunnos();
+    alert('Bensan määrä litroina on: ' + litrat + 'L');
+
+
+    function muunnos() {
+      litrat = gallonat * 3.785;
+      return litrat;
+    }
+
+</script>
+
+</body>
+</html>

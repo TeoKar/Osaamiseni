@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viikko3_CSS</title>
+</head>
+<body>
+<p>Click this document to activate the handler.</p>
+<button>Click me any way you want</button>
+<button>A</button>
+<button>B</button>
+<button>C</button>
+<p>This page turns violet when you hold the V key.</p>
+<p>Drag the bar to change its width:</p>
+<div style="background: orange; width: 60px; height: 20px">
+</div>
+
+<p>Touch this page</p>
+
+<div id="progress"></div>
+
+<p>Name: <input type="text" data-help="Your full name"></p>
+<p>Age: <input type="text" data-help="Your age in years"></p>
+<p id="help"></p>
+
+<p id="balloon">🎈</p>
+
+<style>
+    body {
+        height: 200px;
+        background: beige;
+    }
+
+    #balloon {
+        margin: auto;
+        position: absolute;
+        left: 35%;
+        top: 35%;
+        font-size: 20px;
+    }
+
+    .dot {
+        height: 8px;
+        width: 8px;
+        border-radius: 4px; /* rounds corners */
+        background: blue;
+        position: absolute;
+    }
+
+    dot {
+        position: absolute;
+        display: block;
+        border: 2px solid red;
+        border-radius: 50px;
+        height: 100px;
+        width: 100px;
+    }
+
+    #progress {
+        border-bottom: 2px solid blue;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>
+<script>
+  window.addEventListener('click', () => {
+    console.log('You knocked?');
+  });
+
+  //*****************BALLOOOONNSSSSS********************
+
+  const balloon = document.querySelector('#balloon');
+  balloon.style.fontSize = '25px';
+
+  document.addEventListener('keydown', evt => {
+    evt.preventDefault();
+    let size = balloon.style.fontSize;
+    size = size.replace(/\D/g, '');
+    console.log(size);
+    if (size >= 200) {
+      balloon.innerHTML = "💥";
+      console.log('pop');
+      document.removeEventListener('keydown', evt);
+    } else {
+      if (evt.key == 'ArrowUp') {
+        size = size * 1.1;
+        size = Math.round(size);
+        console.log(size);
+        balloon.style.fontSize = size + 'px';
+      }
+      if (evt.key == 'ArrowDown') {
+        size = size * 0.9;
+        size = Math.round(size);
+        console.log(size);
+        balloon.style.fontSize = size + 'px';
+      }
+    }
+  });
+
+  //*************BALLOOOOOONSS********************************
+
+  let button = document.querySelector('button');
+  button.addEventListener('mousedown', event => {
+    if (event.button == 0) {
+      console.log('Left button');
+    } else if (event.button == 1) {
+      console.log('Middle button');
+    } else if (event.button == 2) {
+      console.log('Right button');
+    }
+  });
+
+  document.body.addEventListener('click', event => {
+    if (event.target.nodeName == 'BUTTON') {
+      console.log('Clicked', event.target.textContent);
+    }
+  });
+
+  window.addEventListener('keydown', event => {
+    if (event.key == 'v') {
+      document.body.style.background = 'violet';
+    }
+  });
+  window.addEventListener('keyup', event => {
+    if (event.key == 'v') {
+      document.body.style.background = '';
+    }
+  });
+
+  window.addEventListener('click', event => {
+    let dot = document.createElement('div');
+    dot.className = 'dot';
+    dot.style.left = (event.pageX - 4) + 'px';
+    dot.style.top = (event.pageY - 4) + 'px';
+    document.body.appendChild(dot);
+  });
+
+  let lastX; // Tracks the last observed mouse X position
+  /* let bar = document.querySelector("div");
+   bar.addEventListener("mousedown", event => {
+     if (event.button == 0) {
+       lastX = event.clientX;
+       window.addEventListener("mousemove", moved);
+       event.preventDefault(); // Prevent selection
+     }
+   });*/
+
+  function moved(event) {
+    if (event.buttons == 0) {
+      window.removeEventListener('mousemove', moved);
+    } else {
+      let dist = event.clientX - lastX;
+      let newWidth = Math.max(10, bar.offsetWidth + dist);
+      bar.style.width = newWidth + 'px';
+      lastX = event.clientX;
+    }
+  }
+
+  /* Create some content
+  document.body.appendChild(document.createTextNode(
+      "supercalifragilisticexpialidocious ".repeat(1000)));*/
+
+  let bar = document.querySelector('#progress');
+  window.addEventListener('scroll', () => {
+    let max = document.body.scrollHeight - innerHeight;
+    bar.style.width = `${(pageYOffset / max) * 100}%`;
+  });
+
+  let help = document.querySelector('#help');
+  let fields = document.querySelectorAll('input');
+  for (let field of Array.from(fields)) {
+    field.addEventListener('focus', event => {
+      let text = event.target.getAttribute('data-help');
+      help.textContent = text;
+    });
+    field.addEventListener('blur', event => {
+      help.textContent = '';
+    });
+  }
+
+  let squareWorker = new Worker('code/squareworker.js');
+  squareWorker.addEventListener('message', event => {
+    console.log('The worker responded:', event.data);
+  });
+  squareWorker.postMessage(10);
+  squareWorker.postMessage(24);
+
+  function update(event) {
+    for (let dot; dot = document.querySelector("dot");) {
+      dot.remove();
+    }
+    for (let i = 0; i < event.touches.length; i++) {
+      let {pageX, pageY} = event.touches[i];
+      let dot = document.createElement('dot');
+      dot.style.left = (pageX - 50) + 'px';
+      dot.style.top = (pageY - 50) + 'px';
+      document.body.appendChild(dot);
+    }
+  }
+
+  addEventListener('message', event => {
+    postMessage(event.data * event.data);
+  });
+  window.addEventListener('touchstart', update);
+  window.addEventListener('touchmove', update);
+  window.addEventListener('touchend', update);
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava1</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    let annettuLuku;
+    let luvut = [];
+    let x = 0;
+    let numMaara = 1;
+    annettuLuku = prompt('Anna ' + numMaara +'. luku!');
+    luvut.push(annettuLuku);
+    numMaara++;
+    x++;
+
+    while (x < 5){
+      annettuLuku = prompt('Anna ' + numMaara +'. luku!');
+      luvut.push(annettuLuku);
+      numMaara++;
+      x++;
+    }
+    let i;
+
+    for(i = x - 1; i >= 0; i--){
+      console.log('luku numero ' + (i+1) + ' on ' + luvut[i]);
+
+    }
+
+    luvut.reverse();
+    console.log(luvut);
+
+
+
+
+</script>
+
+</body>
+</html>

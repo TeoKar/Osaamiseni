@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava6</title>
+</head>
+<body>
+<script>
+    'use script';
+    let luku;
+    let luvut = [];
+    let x = 0;
+
+    do {
+      luku = prompt('Anna luku!');
+      if (luku == 0){
+        break;
+      }
+      luvut.push(luku);
+      x++;
+    } while (luku != 0);
+
+    luvut.sort(function(a, b){return b-a } );
+
+    function median(luvut) {
+
+      luvut.sort( function(a,b) {return a - b;} );
+
+      var half = Math.floor(luvut.length/2);
+
+      if(luvut.length % 2)
+        return luvut[half];
+      else
+        return (luvut[half-1] + luvut[half]) / 2.0;
+    }
+
+    alert('Mediaani on ' + median(luvut));
+
+
+</script>
+</body>
+</html>

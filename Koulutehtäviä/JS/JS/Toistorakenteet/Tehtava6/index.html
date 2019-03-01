@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava6</title>
+</head>
+<body>
+<script>
+    'use strict';
+    let noppienMaara;
+    let haluttuSumma;
+
+    noppienMaara = prompt("Anna noppien haluttu määrä!");
+
+    while (noppienMaara <= 0) {
+      noppienMaara = prompt("Anna noppien haluttu määrä!");
+    }
+
+     haluttuSumma = prompt("Anna haluttu summa");
+
+    while (haluttuSumma <= 0) {
+      haluttuSumma = prompt("Anna haluttu summa");
+    }
+
+    let simulaatioidenMaaara ;
+    let tulos;
+    let osumat = 0;
+    let ohi = 0;
+    let summa = 0;
+    let y = 0;
+    let halutunLuvunTodNakoisyys = 0;
+
+    for (simulaatioidenMaaara = 1; simulaatioidenMaaara <= 10000; simulaatioidenMaaara++){
+
+          for (let x = 1; x < noppienMaara; x++) {
+            tulos = Math.floor(Math.random() * 6) + 1;
+            summa = summa + tulos;
+          }
+
+     if (summa == haluttuSumma){
+            osumat++;
+     }
+     else{
+            ohi++;
+     }
+
+     summa = 0;
+    }
+
+     y = osumat / simulaatioidenMaaara;
+     halutunLuvunTodNakoisyys =(y * 100).toFixed(3);
+     alert('Valitsemasi summan todennäköisyys oli ' + halutunLuvunTodNakoisyys + '%');
+
+        console.log(ohi);
+    console.log(osumat);
+
+</script>
+
+</body>
+</html>

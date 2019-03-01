@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava3</title>
+</head>
+<body>
+<div id="tyhja">Tekstiä</div>
+<script>
+    'use strict';
+    var ul = document.createElement('ul');
+    let annettuVuosi;
+    annettuVuosi = prompt('Anna vuosi');
+    let i = annettuVuosi;
+
+    while (i <=2018) {
+      //console.log(i);
+      if ((0 == i % 4) && (0 != i % 100) || (0 == i % 400)) {
+        console.log("juu");
+        var  li=document.createElement('li');
+        li.innerHTML=i;
+        ul.appendChild(li);
+      }
+      i++;
+    }
+    document.getElementById('tyhja').appendChild(ul);
+
+
+</script>
+
+</body>
+</html>

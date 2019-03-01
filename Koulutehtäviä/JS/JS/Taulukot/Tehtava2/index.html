@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava2</title>
+</head>
+<body>
+<div id="tyhja">Osallistujat</div>
+<script>
+    'use strict';
+    var ol = document.createElement('ol');
+
+    let osallistujienMaara = 0;
+    let nimi;
+    let nimet = [];
+    let i;
+    let x = 1;
+
+    osallistujienMaara = prompt('Anna osallistujien määrä!');
+
+    for (i = osallistujienMaara - 1; i >= 0; i--){
+     nimi = prompt('Anna osallistujan num.' + x + ' nimi!' );
+     nimet.push(nimi);
+     x++;
+    }
+
+
+    for (i = 0; i < osallistujienMaara; i++){
+      var li = document.createElement('li')
+      li.innerHTML = nimet[i];
+      ol.appendChild(li);
+    }
+    document.getElementById('tyhja').appendChild(ol);
+
+
+</script>
+
+
+</body>
+</html>

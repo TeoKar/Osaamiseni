@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtava3</title>
+</head>
+<body>
+<div id="tyhja">Koirien nimet:</div>
+<script>
+    'use strict';
+
+    var ul = document.createElement('ul');
+    let nimet = [];
+    let nimi;
+    let x;
+
+    for (x = 1; x <= 6; x++){
+      nimi = prompt('Anna koiran num.' + x + ' nimi!');
+      nimet.push(nimi);
+    }
+
+    nimet.sort();
+    nimet.reverse();
+
+    for (x = 1; x <= 6; x++){
+      var li = document.createElement('li');
+      li.innerHTML = nimet[x-1];
+      ul.appendChild(li);
+    }
+    document.getElementById('tyhja').appendChild(ul);
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
